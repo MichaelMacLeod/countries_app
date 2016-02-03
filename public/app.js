@@ -11,8 +11,11 @@ var loadCountries = function(){
   }
 }
 
+
+
+
+
 var selectedName = function(){
-  //Json save to local storage and string. Parse and select name... look at var for film of films.
 
   var name = document.getElementById("s1").value
   var result = _.find(countries, function(o){return o.name === name;})
@@ -25,6 +28,9 @@ countryPopulation.innerText = "Population: " + Number( result.population ).toLoc
 
 var countryCapital = document.querySelector(".capital");
 countryCapital.innerText = "Capital city: " +result.capital;
+
+localStorage.setItem('selectedName', JSON.stringify(result) );
+//This lets me use localStorage.selectedName in the browser console to see that the last country selected has persisted. 
 
 }
 
